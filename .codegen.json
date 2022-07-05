@@ -1,0 +1,15 @@
+{
+  "Template": "templates\\Main.cshtml",
+  "OutputDirectory": ".out",
+  "OrgName": "Connect",
+  "ModuleName": "IdeaBox",
+  "RootNameSpace": "Connect.IdeaBox",
+  "SiteConfig": "D:\\Webroot\\DNNCONNECT1\\web.config",
+  "ConnectionString": "",
+  "ObjectQualifier": "",
+  "DatabaseOwner": "dbo",
+  "ModuleObjectQualifier": "IdeaBox_",
+  "IncludeSqlScripts": true,
+  "EnumValues": null,
+  "FullDbPattern": ""
+}

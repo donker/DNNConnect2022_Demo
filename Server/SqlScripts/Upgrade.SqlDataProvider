@@ -1,0 +1,46 @@
+/******* VIEWS AND FUNCTIONS *******/
+DROP VIEW IF EXISTS {databaseOwner}{objectQualifier}vw_IdeaBox_AnotherIdeas
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW {databaseOwner}{objectQualifier}vw_IdeaBox_AnotherIdeas
+AS
+SELECT
+ i.*,
+ u.DisplayName LastUserVoted,
+ y.VotedOn LastVotedOn
+FROM {databaseOwner}{objectQualifier}IdeaBox_Ideas i
+LEFT JOIN (SELECT
+ v2.*
+FROM {databaseOwner}{objectQualifier}IdeaBox_Votes v2
+INNER JOIN (SELECT
+ v1.IdeaId,
+ MAX(v1.VotedOn) LastVotedOn
+FROM {databaseOwner}{objectQualifier}IdeaBox_Votes v1
+GROUP BY v1.IdeaId) x ON x.IdeaId=v2.IdeaId AND x.LastVotedOn=v2.VotedOn) y ON y.IdeaId=i.IdeaId
+LEFT JOIN {databaseOwner}{objectQualifier}Users u ON u.UserID=y.UserId
+GO
+
+DROP VIEW IF EXISTS {databaseOwner}{objectQualifier}vw_IdeaBox_Ideas
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW {databaseOwner}{objectQualifier}vw_IdeaBox_Ideas
+AS
+SELECT
+ i.*,
+ ISNULL((SELECT SUM(v.Karma) FROM {databaseOwner}{objectQualifier}IdeaBox_Votes v WHERE v.IdeaId=i.IdeaId), 0) TotalKarma,
+ uc.DisplayName CreatedByUserDisplayName,
+ um.DisplayName LastModifiedByUserDisplayName
+FROM {databaseOwner}{objectQualifier}IdeaBox_Ideas i
+LEFT JOIN {databaseOwner}{objectQualifier}Users uc ON uc.UserID=i.CreatedByUserID
+LEFT JOIN {databaseOwner}{objectQualifier}Users um ON um.UserID=i.LastModifiedByUserID
+GO
+
+/******* SPROCS *******/

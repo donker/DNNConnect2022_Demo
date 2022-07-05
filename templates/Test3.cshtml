@@ -1,0 +1,40 @@
+@inherits RazorTemplate<ObjectDefinition>
+@using Bring2mind.CodeGen.Cli.Common
+@using Bring2mind.CodeGen.Cli.Data
+@using Bring2mind.CodeGen.Cli.Razor
+@using Microsoft.SqlServer.Management.Smo
+@{
+}
+
+namespace @(Settings.RootNameSpace).Models
+{
+    [TableName("@Model.ModuleQualifier@Model.Name")]
+@if (Model.Table.IsTableWithIdColumn())
+{
+@:    [PrimaryKey("@Model.Table.PrimaryKeyParameters()", AutoIncrement = true)]
+}
+    [DataContract]
+@if (Model.Scope != "")
+{
+@:    [Scope("@Model.Scope")]
+}
+    public partial class @(Model.SingularName) @if (Model.HasAuditFields){@: : AuditableEntity 
+    }
+    {
+
+        public @(Model.SingularName)()
+        {
+@if (@Model.Table.IsTableWithIdColumn())
+{
+@:            @Model.Table.PrimaryKeyParameters() = -1;
+}
+        }
+
+@foreach (Column c in Model.TableColumns)
+{
+@:        [DataMember]
+@:        public @c.DataType.DataTypeToCs()@(c.NullSuffix()) @c.Name { get; set; }
+}
+
+    }
+}

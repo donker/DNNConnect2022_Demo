@@ -1,0 +1,17 @@
+{
+  "generator-dotnetnuke": {
+    "promptValues": {
+      "yourname": "Peter Donker",
+      "email": "peter@bring2mind.net",
+      "companyUrl": "www.bring2mind.net",
+      "dnnHost": "http://dnndev.me",
+      "dnnRoot": "http://custom",
+      "dnnVersion": "9.10.2",
+      "npm": true
+    },
+    "Company": "Connect",
+    "Project": "IdeaBox",
+    "Namespace": "Connect.IdeaBox",
+    "Solution": "Connect.IdeaBox"
+  }
+}

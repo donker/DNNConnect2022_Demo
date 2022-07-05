@@ -1,0 +1,13 @@
+﻿@inherits RazorTemplate<string>
+@using Bring2mind.CodeGen.Cli.Common
+@using Bring2mind.CodeGen.Cli.Data
+@using Bring2mind.CodeGen.Cli.Razor
+
+@{
+  System.Console.WriteLine("Starting this new template");
+}
+
+@foreach (var od in DnnDb.Objects.Values)
+{
+  Engine.RenderTemplate("Test.cshtml", $"{od.SingularName}.cs", od);
+}

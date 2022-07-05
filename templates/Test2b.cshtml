@@ -1,0 +1,24 @@
+@inherits RazorTemplate<ObjectDefinition>
+@using Bring2mind.CodeGen.Cli.Common
+@using Bring2mind.CodeGen.Cli.Data
+@using Bring2mind.CodeGen.Cli.Razor
+@using Microsoft.SqlServer.Management.Smo
+@{
+}
+
+namespace @(Settings.RootNameSpace).Models
+{
+    public partial class @(Model.SingularName) @if (Model.HasAuditFields){@: : AuditableEntity 
+    }
+    {
+@foreach (var c in Model.TableColumns)
+{
+@:        public @c.DataType.DataTypeToCs()@(c.NullSuffix()) @c.Name { get; set; }
+}
+@foreach (var c in Model.UniqueViewColumns)
+{
+@:        public @c.DataType.DataTypeToCs()@(c.NullSuffix()) @c.Name { get; set; }
+}
+
+    }
+}

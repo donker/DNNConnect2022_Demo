@@ -1,0 +1,48 @@
+{
+  "name": "Connect.IdeaBox",
+  "projectType": "module",
+  "friendlyName": "IdeaBox Module",
+  "description": "Connect IdeaBox Module",
+  "packageName": "Connect_IdeaBox",
+  "folder": "MVC/Connect/IdeaBox",
+  "iconFile": "DesktopModules\\MVC\\Connect\\IdeaBox\\icon.png",
+  "module": {
+    "azureCompatible": "true",
+    "moduleName": "Connect_IdeaBox",
+    "foldername": "Connect/IdeaBox",
+    "businessControllerClass": "Connect.IdeaBox.IdeaBox.Common.ModuleController, CONNECT.IDEABOX.IDEABOX",
+    "supportedFeatures": ["Portable"],
+    "moduleDefinitions": [
+      {
+        "friendlyName": "Connect IdeaBox",
+        "defaultCacheTime": 0,
+        "moduleControls": [
+          {
+            "controlSrc": "Connect.IdeaBox.IdeaBox.Controllers/Home/Index.mvc",
+            "supportsPartialRendering": "False",
+            "controlTitle": "IdeaBox",
+            "controlType": "View",
+            "viewOrder": 0
+          },
+          {
+            "controlKey": "Settings",
+            "controlSrc": "Connect.IdeaBox.IdeaBox.Controllers/Settings/Settings.mvc",
+            "supportsPartialRendering": "False",
+            "controlTitle": "IdeaBox Settings",
+            "controlType": "Edit",
+            "viewOrder": 0
+          }
+        ],
+        "permissions": [
+          { "code": "Connect_IdeaBox_MODULE", "key": "CANSUBMIT", "name": "Submit Ideas" },
+          { "code": "Connect_IdeaBox_MODULE", "key": "CANVOTE", "name": "Can Vote On Ideas" }
+        ]
+      }
+    ]
+  },
+  "pathsAndFiles": {
+    "pathToAssemblies": "./bin",
+    "assemblies": ["Connect.IdeaBox.IdeaBox.dll"],
+    "excludeFilter": ["IdeaBox/bin/", "IdeaBox/obj/"]
+  }
+}

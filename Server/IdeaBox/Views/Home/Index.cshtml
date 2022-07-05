@@ -1,0 +1,20 @@
+@inherits IdeaBoxWebPage
+@using Connect.IdeaBox.IdeaBox.Common
+@using Connect.IdeaBox.Repositories
+@{
+  IdeaBoxModuleContext.AddModuleScript();
+
+  var allIdeas = IdeaRepository.Instance.GetIdeas(Dnn.ActiveModule.ModuleID);
+}
+
+<h1>Hello IdeaBox Module</h1>
+
+<div class="ConnectIdeaBox IdeaBox"
+     data-locale="@System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName"
+     data-moduleid="@Dnn.ActiveModule.ModuleID"
+     data-tabid="@Dnn.ActiveModule.TabID"
+     data-portalid="@Dnn.PortalSettings.PortalId"
+     data-resources="@SerializedResources()"
+     data-security="@(Newtonsoft.Json.JsonConvert.SerializeObject(IdeaBoxModuleContext.Security))"
+     >
+</div>

@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <AssemblyName>Connect.IdeaBox.IdeaBox</AssemblyName>
+    <TargetFramework>net472</TargetFramework>
+    <OutputPath>..\..\bin</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <Authors>Peter Donker</Authors>
+    <Company>DNN Connect</Company>
+    <Product>ideabox</Product>
+    <Copyright>Copyright 2022 by DNN Connect</Copyright>
+    <PackageId>Connect.IdeaBox.IdeaBox</PackageId>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <Description>IdeaBox module</Description>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <DebugType>Portable</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.10.2" />
+    <PackageReference Include="DotNetNuke.Web.Mvc" Version="9.10.2" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Connect.IdeaBox.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+</Project>

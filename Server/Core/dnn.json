@@ -1,0 +1,16 @@
+{
+  "projectType": "library",
+  "name": "IdeaBox_Core",
+  "friendlyName": "IdeaBox Core",
+  "description": "IdeaBox Core Library",
+  "packageName": "IdeaBox_Core",
+  "folder": "Connect/IdeaBoxCore",
+  "library": {},
+  "pathsAndFiles": {
+    "pathToAssemblies": "./bin",
+    "pathToScripts": "./Server/SqlScripts",
+    "assemblies": ["Connect.IdeaBox.Core.dll"],
+    "releaseFiles": [],
+    "zipName": "IdeaBox.Core"
+  }
+}
